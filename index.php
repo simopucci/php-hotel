@@ -40,52 +40,89 @@
 
     ];
 
+
+    // $filter_parking = isset($GET['check-parking']) ? true : false;
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Php Hotel</title>
 
     <!-- Link Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body>
 
-    <table class="table">
-        <thead class="text-center">
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Descrizione</th>
-                <th scope="col">Parcheggio</th>
-                <th scope="col">Voto</th>
-                <th scope="col">Distanza dal centro</th>
-            </tr>
-        </thead>
-        <tbody class="text-center">
-            <?php foreach ($hotels as $hotel): ?>
+
+
+    <h1 class="container text-center my-5">PHP Hotels</h1>
+
+    <!-- <div class="card mt-5 container mb-3">
+        <div class="card-body">
+            <form method="GET">
+
+                <div class="form-check">
+                    <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="check-parking" 
+                    name="check-parking">
+                    
+                    <label class="form-check-label mb-3" for="check-parking">
+                        Con parcheggio
+                    </label>
+                </div>
+
+                <button class="btn btn-success">Filtra</button>
+
+            </form>
+        </div>
+    </div> -->
+
+
+    <!-- Tabella Hotel -->
+    <div class="card container p-3">
+        <table class="table table-hover m-0">
+            <thead class="text-center">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">Parcheggio</th>
+                    <th scope="col">Voto</th>
+                    <th scope="col">Distanza dal centro</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <?php foreach ($hotels as $hotel): ?>
                 <tr>
                     <td>
-                       <?= $hotel['name'] ?> 
+                        <?= $hotel['name'] ?>
                     </td>
                     <td>
-                        <?= $hotel['description'] ?> 
+                        <?= $hotel['description'] ?>
                     </td>
                     <td>
-                        <?= $hotel['parking'] ?> 
+                        <?= $hotel['parking'] ? 'Si' : 'No' ?>
                     </td>
                     <td>
-                        <?= $hotel['vote'] ?> 
+                        <?= $hotel['vote'] ?>
                     </td>
                     <td>
-                        <?= $hotel['distance_to_center'] ?> 
+                        <?= $hotel['distance_to_center'] ?>
                     </td>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 
 </body>
+
 </html>
